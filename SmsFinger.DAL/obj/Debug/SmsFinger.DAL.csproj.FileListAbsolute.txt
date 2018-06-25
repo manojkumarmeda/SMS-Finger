@@ -1,0 +1,17 @@
+G:\Projects\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.dll
+G:\Projects\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.pdb
+G:\Projects\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.dll
+G:\Projects\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.pdb
+G:\Projects\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.dll.config
+G:\Projects\SmsFinger\SmsFinger.DAL\bin\Debug\SubSonic.dll
+G:\Projects\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.csprojResolveAssemblyReference.cache
+F:\Room\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.dll.config
+F:\Room\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.dll
+F:\Room\SmsFinger\SmsFinger.DAL\bin\Debug\SmsFinger.DAL.pdb
+F:\Room\SmsFinger\SmsFinger.DAL\bin\Debug\MySql.Data.dll
+F:\Room\SmsFinger\SmsFinger.DAL\bin\Debug\SubSonic.dll
+F:\Room\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.dll
+F:\Room\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.pdb
+F:\Room\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.csprojAssemblyReference.cache
+F:\Room\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.csproj.CoreCompileInputs.cache
+F:\Room\SmsFinger\SmsFinger.DAL\obj\Debug\SmsFinger.DAL.csproj.CopyComplete

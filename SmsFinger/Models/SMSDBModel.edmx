@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="smsfingerModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accouts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="acname" Type="varchar" MaxLength="100" />
+          <Property Name="mpoc" Type="varchar" MaxLength="100" />
+          <Property Name="mobileno" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="int" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="remarks" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="contacts">
+          <Key>
+            <PropertyRef Name="contactid" />
+          </Key>
+          <Property Name="contactid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contactname" Type="varchar" MaxLength="100" />
+          <Property Name="mobileno" Type="varbinary" MaxLength="15" />
+          <Property Name="acid" Type="int" />
+          <Property Name="groupid" Type="int" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="usercreated" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="groups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="groupname" Type="varchar" MaxLength="100" />
+          <Property Name="acid" Type="int" />
+          <Property Name="usercreated" Type="int" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="200" />
+          <Property Name="creatorid" Type="int" />
+          <Property Name="messagebody" Type="blob" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="parentmessageid" Type="int" />
+          <Property Name="expirydate" Type="datetime" Precision="0" />
+          <Property Name="isreminder" Type="int" />
+          <Property Name="nextreminddate" Type="datetime" Precision="0" />
+          <Property Name="reminderfrequencyid" Type="int" />
+        </EntityType>
+        <EntityType Name="messagerecipient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="recipientid" Type="int" />
+          <Property Name="recipientgroupid" Type="int" />
+          <Property Name="messageid" Type="int" />
+          <Property Name="readstatus" Type="int" />
+        </EntityType>
+        <EntityType Name="reminderfrequency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="20" />
+          <Property Name="frequency" Type="int" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="sentmessages">
+          <Key>
+            <PropertyRef Name="msgid" />
+          </Key>
+          <Property Name="msgid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mobileno" Type="varchar" MaxLength="15" />
+          <Property Name="messagebody" Type="varchar" MaxLength="500" />
+          <Property Name="msgtype" Type="int" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="usercreated" Type="int" />
+          <Property Name="acid" Type="int" />
+          <Property Name="msgstatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="acid" Type="int" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="int" />
+          <Property Name="datecreated" Type="datetime" Precision="0" />
+          <Property Name="usercreated" Type="int" />
+        </EntityType>
+        <EntityContainer Name="smsfingerModelStoreContainer">
+          <EntitySet Name="accouts" EntityType="Self.accouts" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="contacts" EntityType="Self.contacts" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="groups" EntityType="Self.groups" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="messagerecipient" EntityType="Self.messagerecipient" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="reminderfrequency" EntityType="Self.reminderfrequency" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="sentmessages" EntityType="Self.sentmessages" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="smsfinger" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="smsfingerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accout">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="contactid" />
+          </Key>
+          <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="acid" Type="Int32" />
+          <Property Name="groupid" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="usercreated" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="groupname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="acid" Type="Int32" />
+          <Property Name="usercreated" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="creatorid" Type="Int32" />
+          <Property Name="messagebody" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="parentmessageid" Type="Int32" />
+          <Property Name="expirydate" Type="DateTime" />
+          <Property Name="isreminder" Type="Int32" />
+          <Property Name="nextreminddate" Type="DateTime" />
+          <Property Name="reminderfrequencyid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="messagerecipient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipientid" Type="Int32" />
+          <Property Name="recipientgroupid" Type="Int32" />
+          <Property Name="messageid" Type="Int32" />
+          <Property Name="readstatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="reminderfrequency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="frequency" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sentmessage">
+          <Key>
+            <PropertyRef Name="msgid" />
+          </Key>
+          <Property Name="msgid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="messagebody" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="msgtype" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="usercreated" Type="Int32" />
+          <Property Name="acid" Type="Int32" />
+          <Property Name="msgstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acid" Type="Int32" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="usercreated" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accouts" EntityType="Self.accout" />
+          <EntitySet Name="contacts" EntityType="Self.contact" />
+          <EntitySet Name="groups" EntityType="Self.group" />
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="messagerecipients" EntityType="Self.messagerecipient" />
+          <EntitySet Name="reminderfrequencies" EntityType="Self.reminderfrequency" />
+          <EntitySet Name="sentmessages" EntityType="Self.sentmessage" />
+          <EntitySet Name="users" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="smsfingerModelStoreContainer" CdmEntityContainer="smsfingerDB">
+          <EntitySetMapping Name="accouts">
+            <EntityTypeMapping TypeName="smsfingerModel.accout">
+              <MappingFragment StoreEntitySet="accouts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="mpoc" ColumnName="mpoc" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="smsfingerModel.contact">
+              <MappingFragment StoreEntitySet="contacts">
+                <ScalarProperty Name="contactid" ColumnName="contactid" />
+                <ScalarProperty Name="contactname" ColumnName="contactname" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="groups">
+            <EntityTypeMapping TypeName="smsfingerModel.group">
+              <MappingFragment StoreEntitySet="groups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="groupname" ColumnName="groupname" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="smsfingerModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="creatorid" ColumnName="creatorid" />
+                <ScalarProperty Name="messagebody" ColumnName="messagebody" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="parentmessageid" ColumnName="parentmessageid" />
+                <ScalarProperty Name="expirydate" ColumnName="expirydate" />
+                <ScalarProperty Name="isreminder" ColumnName="isreminder" />
+                <ScalarProperty Name="nextreminddate" ColumnName="nextreminddate" />
+                <ScalarProperty Name="reminderfrequencyid" ColumnName="reminderfrequencyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messagerecipients">
+            <EntityTypeMapping TypeName="smsfingerModel.messagerecipient">
+              <MappingFragment StoreEntitySet="messagerecipient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="recipientid" ColumnName="recipientid" />
+                <ScalarProperty Name="recipientgroupid" ColumnName="recipientgroupid" />
+                <ScalarProperty Name="messageid" ColumnName="messageid" />
+                <ScalarProperty Name="readstatus" ColumnName="readstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reminderfrequencies">
+            <EntityTypeMapping TypeName="smsfingerModel.reminderfrequency">
+              <MappingFragment StoreEntitySet="reminderfrequency">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sentmessages">
+            <EntityTypeMapping TypeName="smsfingerModel.sentmessage">
+              <MappingFragment StoreEntitySet="sentmessages">
+                <ScalarProperty Name="msgid" ColumnName="msgid" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="messagebody" ColumnName="messagebody" />
+                <ScalarProperty Name="msgtype" ColumnName="msgtype" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="msgstatus" ColumnName="msgstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="smsfingerModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

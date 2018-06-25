@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SmsFinger.Models.user>
+
+@{
+    ViewBag.Title = "Users List";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<!-- JQuery DataTable Css -->
+<link href="~/App_Themes/Theme/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>
+            User Management
+        </h2>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Users List
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>@Html.ActionLink("Add New User", "Create")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table id="DataTables_Table_1" class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.acid)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.firstname)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.lastname)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.gender)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.password)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.status)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.datecreated)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.usercreated)
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.acid)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.firstname)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lastname)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.gender)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.password)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.status)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.datecreated)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.usercreated)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="~/App_Themes/Theme/plugins/jquery/jquery.min.js"></script>
+
+<!-- Jquery DataTable Plugin Js -->
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="~/App_Themes/Theme/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+<script src="~/App_Themes/Theme/js/pages/tables/jquery-datatable.js"></script>
+
