@@ -3592,12 +3592,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmsFinger.DAL\SmsFinger.DAL.csproj">
-      <Project>{988e6998-3e54-49aa-9efe-20da7aab1dd1}</Project>
-      <Name>SmsFinger.DAL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
