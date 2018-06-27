@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SmsFinger.Models.user>
+﻿@model IEnumerable<SmsFinger.Models.accout>
 
 @{
-    ViewBag.Title = "Users List";
+    ViewBag.Title = "Index";
     Layout = "~/Views/_MasterLayout.cshtml";
 }
 
@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="block-header">
         <h2>
-            User Management
+            Account Management
         </h2>
     </div>
     <div class="row clearfix">
@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        Users List
+                        Accounts List
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
@@ -27,7 +27,7 @@
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li>@Html.ActionLink("Add New User", "Create")</li>
+                                <li>@Html.ActionLink("Add New Account", "Create")</li>
                             </ul>
                         </li>
                     </ul>
@@ -38,16 +38,16 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.acid)
+                                        @Html.DisplayNameFor(model => model.id)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.firstname)
+                                        @Html.DisplayNameFor(model => model.acname)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.lastname)
+                                        @Html.DisplayNameFor(model => model.mpoc)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.gender)
+                                        @Html.DisplayNameFor(model => model.mobileno)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.email)
@@ -61,31 +61,31 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.acid)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.firstname)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.lastname)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.gender)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.email)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.status)
-                                        </td>
-                                        <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.id },new {@class= "btn btn-success waves-effect" }) 
-                                            @Html.ActionLink("Details", "Details", new { id = item.id },new { @class= "btn btn-info waves-effect"}) 
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger waves-effect" })
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.acname)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mpoc)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.mobileno)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.status)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-success waves-effect" })
+                                        @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info waves-effect" })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger waves-effect" })
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

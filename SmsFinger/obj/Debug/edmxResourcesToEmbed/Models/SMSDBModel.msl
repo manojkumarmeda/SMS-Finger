@@ -96,6 +96,8 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="smsfingerModel.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="acid" ColumnName="acid" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
@@ -106,6 +108,39 @@
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="datecreated" ColumnName="datecreated" />
           <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modules">
+      <EntityTypeMapping TypeName="smsfingerModel.module">
+        <MappingFragment StoreEntitySet="modules">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="mcode" ColumnName="mcode" />
+          <ScalarProperty Name="mdesc" ColumnName="mdesc" />
+          <ScalarProperty Name="mname" ColumnName="mname" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role_module_permisions">
+      <EntityTypeMapping TypeName="smsfingerModel.role_module_permisions">
+        <MappingFragment StoreEntitySet="role_module_permisions">
+          <ScalarProperty Name="pd" ColumnName="pd" />
+          <ScalarProperty Name="pu" ColumnName="pu" />
+          <ScalarProperty Name="pr" ColumnName="pr" />
+          <ScalarProperty Name="pc" ColumnName="pc" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="urmpid" ColumnName="urmpid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userroles">
+      <EntityTypeMapping TypeName="smsfingerModel.userrole">
+        <MappingFragment StoreEntitySet="userrole">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

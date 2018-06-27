@@ -33,5 +33,8 @@ namespace SmsFinger.Models
         public DbSet<reminderfrequency> reminderfrequencies { get; set; }
         public DbSet<sentmessage> sentmessages { get; set; }
         public DbSet<user> users { get; set; }
+        public DbSet<module> modules { get; set; }
+        public DbSet<role_module_permisions> role_module_permisions { get; set; }
+        public DbSet<userrole> userroles { get; set; }
     }
 }

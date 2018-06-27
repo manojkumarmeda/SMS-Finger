@@ -12,19 +12,12 @@ namespace SmsFinger.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class module
     {
-        public int id { get; set; }
-        public Nullable<int> acid { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string gender { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        public int mid { get; set; }
+        public string mname { get; set; }
+        public string mdesc { get; set; }
+        public string mcode { get; set; }
         public Nullable<int> status { get; set; }
-        public Nullable<System.DateTime> datecreated { get; set; }
-        public Nullable<int> usercreated { get; set; }
-        public string remarks { get; set; }
-        public Nullable<int> rid { get; set; }
     }
 }

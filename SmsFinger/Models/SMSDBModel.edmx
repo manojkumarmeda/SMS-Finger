@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="smsfingerModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="smsfingerModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="accouts">
           <Key>
             <PropertyRef Name="id" />
@@ -68,6 +68,16 @@
           <Property Name="messageid" Type="int" />
           <Property Name="readstatus" Type="int" />
         </EntityType>
+        <EntityType Name="modules">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mname" Type="varchar" MaxLength="500" />
+          <Property Name="mdesc" Type="varchar" MaxLength="100" />
+          <Property Name="mcode" Type="varchar" MaxLength="10" />
+          <Property Name="status" Type="int" />
+        </EntityType>
         <EntityType Name="reminderfrequency">
           <Key>
             <PropertyRef Name="id" />
@@ -76,6 +86,18 @@
           <Property Name="title" Type="varchar" MaxLength="20" />
           <Property Name="frequency" Type="int" />
           <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="role_module_permisions">
+          <Key>
+            <PropertyRef Name="urmpid" />
+          </Key>
+          <Property Name="urmpid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleid" Type="bigint" Nullable="false" />
+          <Property Name="mid" Type="int" Nullable="false" />
+          <Property Name="pc" Type="bool" />
+          <Property Name="pr" Type="bool" />
+          <Property Name="pu" Type="bool" />
+          <Property Name="pd" Type="bool" />
         </EntityType>
         <EntityType Name="sentmessages">
           <Key>
@@ -95,6 +117,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rid" Type="int" />
           <Property Name="acid" Type="int" />
           <Property Name="firstname" Type="varchar" MaxLength="50" />
           <Property Name="lastname" Type="varchar" MaxLength="50" />
@@ -104,6 +127,15 @@
           <Property Name="status" Type="int" />
           <Property Name="datecreated" Type="datetime" Precision="0" />
           <Property Name="usercreated" Type="int" />
+          <Property Name="remarks" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rolename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="int" />
         </EntityType>
         <EntityContainer Name="smsfingerModelStoreContainer">
           <EntitySet Name="accouts" EntityType="Self.accouts" Schema="smsfinger" store:Type="Tables" />
@@ -111,12 +143,14 @@
           <EntitySet Name="groups" EntityType="Self.groups" Schema="smsfinger" store:Type="Tables" />
           <EntitySet Name="message" EntityType="Self.message" Schema="smsfinger" store:Type="Tables" />
           <EntitySet Name="messagerecipient" EntityType="Self.messagerecipient" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="modules" EntityType="Self.modules" Schema="smsfinger" store:Type="Tables" />
           <EntitySet Name="reminderfrequency" EntityType="Self.reminderfrequency" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="role_module_permisions" EntityType="Self.role_module_permisions" Schema="smsfinger" store:Type="Tables" />
           <EntitySet Name="sentmessages" EntityType="Self.sentmessages" Schema="smsfinger" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="smsfinger" store:Type="Tables" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" Schema="smsfinger" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="smsfingerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -219,6 +253,8 @@
           <Property Name="status" Type="Int32" />
           <Property Name="datecreated" Type="DateTime" />
           <Property Name="usercreated" Type="Int32" />
+          <Property Name="remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="rid" Type="Int32" />
         </EntityType>
         <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="accouts" EntityType="Self.accout" />
@@ -229,7 +265,40 @@
           <EntitySet Name="reminderfrequencies" EntityType="Self.reminderfrequency" />
           <EntitySet Name="sentmessages" EntityType="Self.sentmessage" />
           <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="modules" EntityType="smsfingerModel.module" />
+          <EntitySet Name="role_module_permisions" EntityType="smsfingerModel.role_module_permisions" />
+          <EntitySet Name="userroles" EntityType="smsfingerModel.userrole" />
         </EntityContainer>
+        <EntityType Name="module">
+          <Key>
+            <PropertyRef Name="mid" />
+          </Key>
+          <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="mdesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="role_module_permisions">
+          <Key>
+            <PropertyRef Name="urmpid" />
+          </Key>
+          <Property Name="urmpid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleid" Type="Int64" Nullable="false" />
+          <Property Name="mid" Type="Int32" Nullable="false" />
+          <Property Name="pc" Type="Boolean" />
+          <Property Name="pr" Type="Boolean" />
+          <Property Name="pu" Type="Boolean" />
+          <Property Name="pd" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rolename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -331,6 +400,8 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="smsfingerModel.user">
               <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="acid" ColumnName="acid" />
                 <ScalarProperty Name="firstname" ColumnName="firstname" />
@@ -341,6 +412,39 @@
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="datecreated" ColumnName="datecreated" />
                 <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modules">
+            <EntityTypeMapping TypeName="smsfingerModel.module">
+              <MappingFragment StoreEntitySet="modules">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="mcode" ColumnName="mcode" />
+                <ScalarProperty Name="mdesc" ColumnName="mdesc" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role_module_permisions">
+            <EntityTypeMapping TypeName="smsfingerModel.role_module_permisions">
+              <MappingFragment StoreEntitySet="role_module_permisions">
+                <ScalarProperty Name="pd" ColumnName="pd" />
+                <ScalarProperty Name="pu" ColumnName="pu" />
+                <ScalarProperty Name="pr" ColumnName="pr" />
+                <ScalarProperty Name="pc" ColumnName="pc" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="urmpid" ColumnName="urmpid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userroles">
+            <EntityTypeMapping TypeName="smsfingerModel.userrole">
+              <MappingFragment StoreEntitySet="userrole">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="rid" ColumnName="rid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -99,6 +99,8 @@
     <Property Name="status" Type="Int32" />
     <Property Name="datecreated" Type="DateTime" />
     <Property Name="usercreated" Type="Int32" />
+    <Property Name="remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="rid" Type="Int32" />
   </EntityType>
   <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="accouts" EntityType="Self.accout" />
@@ -109,5 +111,38 @@
     <EntitySet Name="reminderfrequencies" EntityType="Self.reminderfrequency" />
     <EntitySet Name="sentmessages" EntityType="Self.sentmessage" />
     <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="modules" EntityType="smsfingerModel.module" />
+    <EntitySet Name="role_module_permisions" EntityType="smsfingerModel.role_module_permisions" />
+    <EntitySet Name="userroles" EntityType="smsfingerModel.userrole" />
   </EntityContainer>
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="mdesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="role_module_permisions">
+    <Key>
+      <PropertyRef Name="urmpid" />
+    </Key>
+    <Property Name="urmpid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="Int64" Nullable="false" />
+    <Property Name="mid" Type="Int32" Nullable="false" />
+    <Property Name="pc" Type="Boolean" />
+    <Property Name="pr" Type="Boolean" />
+    <Property Name="pu" Type="Boolean" />
+    <Property Name="pd" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="userrole">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rolename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
 </Schema>

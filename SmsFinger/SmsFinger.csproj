@@ -3407,6 +3407,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -3428,7 +3430,13 @@
     <Compile Include="Models\messagerecipient.cs">
       <DependentUpon>SMSDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\module.cs">
+      <DependentUpon>SMSDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\reminderfrequency.cs">
+      <DependentUpon>SMSDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role_module_permisions.cs">
       <DependentUpon>SMSDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sentmessage.cs">
@@ -3450,6 +3458,9 @@
       <DependentUpon>SMSDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
+      <DependentUpon>SMSDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userrole.cs">
       <DependentUpon>SMSDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3581,6 +3592,16 @@
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\ErrorPage.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

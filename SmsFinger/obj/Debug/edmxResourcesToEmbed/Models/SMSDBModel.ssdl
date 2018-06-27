@@ -63,6 +63,16 @@
     <Property Name="messageid" Type="int" />
     <Property Name="readstatus" Type="int" />
   </EntityType>
+  <EntityType Name="modules">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mname" Type="varchar" MaxLength="500" />
+    <Property Name="mdesc" Type="varchar" MaxLength="100" />
+    <Property Name="mcode" Type="varchar" MaxLength="10" />
+    <Property Name="status" Type="int" />
+  </EntityType>
   <EntityType Name="reminderfrequency">
     <Key>
       <PropertyRef Name="id" />
@@ -71,6 +81,18 @@
     <Property Name="title" Type="varchar" MaxLength="20" />
     <Property Name="frequency" Type="int" />
     <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="role_module_permisions">
+    <Key>
+      <PropertyRef Name="urmpid" />
+    </Key>
+    <Property Name="urmpid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleid" Type="bigint" Nullable="false" />
+    <Property Name="mid" Type="int" Nullable="false" />
+    <Property Name="pc" Type="bool" />
+    <Property Name="pr" Type="bool" />
+    <Property Name="pu" Type="bool" />
+    <Property Name="pd" Type="bool" />
   </EntityType>
   <EntityType Name="sentmessages">
     <Key>
@@ -90,6 +112,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rid" Type="int" />
     <Property Name="acid" Type="int" />
     <Property Name="firstname" Type="varchar" MaxLength="50" />
     <Property Name="lastname" Type="varchar" MaxLength="50" />
@@ -99,6 +122,15 @@
     <Property Name="status" Type="int" />
     <Property Name="datecreated" Type="datetime" Precision="0" />
     <Property Name="usercreated" Type="int" />
+    <Property Name="remarks" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="userrole">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rolename" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status" Type="int" />
   </EntityType>
   <EntityContainer Name="smsfingerModelStoreContainer">
     <EntitySet Name="accouts" EntityType="Self.accouts" Schema="smsfinger" store:Type="Tables" />
@@ -106,8 +138,11 @@
     <EntitySet Name="groups" EntityType="Self.groups" Schema="smsfinger" store:Type="Tables" />
     <EntitySet Name="message" EntityType="Self.message" Schema="smsfinger" store:Type="Tables" />
     <EntitySet Name="messagerecipient" EntityType="Self.messagerecipient" Schema="smsfinger" store:Type="Tables" />
+    <EntitySet Name="modules" EntityType="Self.modules" Schema="smsfinger" store:Type="Tables" />
     <EntitySet Name="reminderfrequency" EntityType="Self.reminderfrequency" Schema="smsfinger" store:Type="Tables" />
+    <EntitySet Name="role_module_permisions" EntityType="Self.role_module_permisions" Schema="smsfinger" store:Type="Tables" />
     <EntitySet Name="sentmessages" EntityType="Self.sentmessages" Schema="smsfinger" store:Type="Tables" />
     <EntitySet Name="user" EntityType="Self.user" Schema="smsfinger" store:Type="Tables" />
+    <EntitySet Name="userrole" EntityType="Self.userrole" Schema="smsfinger" store:Type="Tables" />
   </EntityContainer>
 </Schema>

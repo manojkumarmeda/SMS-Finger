@@ -13,6 +13,9 @@
         <EntityTypeShape EntityType="smsfingerModel.reminderfrequency" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="smsfingerModel.sentmessage" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="smsfingerModel.user" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="smsfingerModel.module" Width="1.5" PointX="3.75" PointY="7.75" />
+        <EntityTypeShape EntityType="smsfingerModel.role_module_permisions" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="smsfingerModel.userrole" Width="1.5" PointX="9.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

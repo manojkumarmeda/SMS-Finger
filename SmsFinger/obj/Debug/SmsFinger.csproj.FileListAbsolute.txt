@@ -47,7 +47,6 @@ F:\Room\SmsFinger\SmsFinger\bin\EntityFramework.xml
 F:\Room\SmsFinger\SmsFinger\obj\Debug\SmsFinger.csprojAssemblyReference.cache
 F:\Room\SmsFinger\SmsFinger\obj\Debug\SmsFinger.csproj.CoreCompileInputs.cache
 F:\Room\SmsFinger\SmsFinger\obj\Debug\SmsFinger.csproj.CopyComplete
-F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.csprojAssemblyReference.cache
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.csproj.CoreCompileInputs.cache
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.dll
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.pdb
@@ -70,3 +69,4 @@ F:\Room\SmsFinger\SMS-Finger\SmsFinger\bin\System.Web.Webpages.Razor.xml
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\bin\System.Web.Helpers.xml
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\bin\System.Web.Mvc.xml
 F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.csproj.CopyComplete
+F:\Room\SmsFinger\SMS-Finger\SmsFinger\obj\Debug\SmsFinger.csprojAssemblyReference.cache
