@@ -8,6 +8,101 @@
 <!-- Bootstrap Tagsinput Css -->
 <link href="~/App_Themes/Theme/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 <link href="~/App_Themes/Theme/css/contacts-styles.css" rel="stylesheet" />
+<style>
+    .contactsul {
+    }
+
+    body {
+        background-color: #f1f1f1;
+        font-family: Helvetica,Arial,Verdana;
+    }
+
+    h1 {
+        color: green;
+        text-align: center;
+    }
+
+    .redfamily {
+        color: red;
+    }
+
+    .search-box, .close-icon, .search-wrapper {
+        position: relative;
+        padding: 10px;
+    }
+
+    .search-wrapper {
+        width: 500px;
+        margin-left: 50px;
+        /*margin: auto;
+        margin-top: 50px;*/
+    }
+
+    .search-box {
+        width: 80%;
+        border: 1px solid #ccc;
+        outline: 0;
+        border-radius: 15px;
+    }
+
+        .search-box:focus {
+            box-shadow: 0 0 15px 5px #b0e0ee;
+            border: 2px solid #bebede;
+        }
+
+    .close-icon {
+        border: 1px solid transparent;
+        background-color: transparent;
+        display: inline-block;
+        vertical-align: middle;
+        outline: 0;
+        cursor: pointer;
+    }
+
+        .close-icon:after {
+            content: "X";
+            display: block;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            background-color: #FA9595;
+            z-index: 1;
+            right: 35px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            padding: 2px;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-weight: normal;
+            font-size: 12px;
+            box-shadow: 0 0 2px #E50F0F;
+            cursor: pointer;
+        }
+
+    .search-box:not(:valid) ~ .close-icon {
+        display: none;
+    }
+</style>
+<!-- Jquery Core Js -->
+<script src="~/App_Themes/Theme/plugins/jquery/jquery.min.js"></script>
+<script>
+    function ctcolorpicker(name) {
+
+        var textArray = [
+            'red',
+            'blue',
+            'grey',
+            'green',
+            'pink'
+        ];
+        var randomNumber = Math.floor(Math.random() * textArray.length);
+        var thumbnail = "<span class='" + textArray[randomNumber] + "'>" + name + "</span>";
+        //$(".contacts").append(thumbnail);
+        return thumbnail;
+    }
+</script>
 <div class="container-fluid">
     <div class="block-header">
         <h2>
@@ -21,25 +116,35 @@
                     <h2>
                         Contacts List
                     </h2>
-                    <ul class="right-align">
-                        <button type="button" class="btn bg-red waves-effect" data-toggle="modal" data-target="#smallModal">
-                            <i class="material-icons">contacts</i>
-                            <span>Add New</span>
-                        </button>
-                    </ul>
+                    <button type="button" class="btn bg-red waves-effect header-dropdown m-r--5" data-toggle="modal" data-target="#smallModal">
+                        <i class="material-icons">contacts</i>
+                        <span>Add New</span>
+                    </button>
+
                 </div>
                 <div class="body">
-                    <ul>
-                        @foreach (var item in Model)
-                        {
-                            <li class="contacts">
-                                <span class="red">@item.contactname.Substring(0, 1)</span> @item.contactname @item.mobileno<label class="material-checkbox">
-                                    <input type="checkbox" id="@item.mobileno">
-                                    <span></span>
-                                </label>
-                            </li>
-                        }
-                    </ul>
+                    <div class="row">
+                        <div class="search-wrapper">
+                            <form>
+                                <input type="text" name="searchText" id="searchText" required class="search-box" placeholder="Enter search term" />
+                                <button class="close-icon" type="reset"></button>
+                            </form>
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="contactsul">
+                                @foreach (var item in Model)
+                                {
+                                    <li class="contacts">
+                                        <span class="thumb">@item.contactname.Substring(0, 1)</span><label>@item.contactname</label> <sub>@item.mobileno</sub>
+                                        <label class="material-checkbox">
+                                            <input type="checkbox" id="@item.mobileno">
+                                            <span></span>
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,8 +195,7 @@
         </div>
     </div>
 </div>
-<!-- Jquery Core Js -->
-<script src="~/App_Themes/Theme/plugins/jquery/jquery.min.js"></script>
+
 <script>
     $(document).ready(function () {
         $("#btnsubmit").click(function () {
@@ -106,7 +210,39 @@
                 }
             });
         });
+
+        $(".contactsul").find('li').each(function (index, e) {
+            var textArray = [
+                'red',
+                'blue',
+                'grey',
+                'green',
+                'pink'
+            ];
+            var randomNumber = Math.floor(Math.random() * textArray.length);
+            var thumbnailcolo = textArray[randomNumber];
+
+            $(this).children().addClass(textArray[randomNumber]);
+        });
+        $('#searchText').on('change keyup paste mouseup input', function () {
+
+            var searchString = $(this).val();
+
+            $(".contactsul li").each(function (index, value) {
+
+                currentName = $(value).text();
+                if (currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+                    $(value).show();
+                } else {
+                    $(value).hide();
+                }
+
+            });
+
+        });
+
     });
+
 </script>
 
 

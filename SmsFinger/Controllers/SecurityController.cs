@@ -38,7 +38,10 @@ namespace SmsFinger.Controllers
                             Session["UserEmail"] = objUser.email;
                             Session["Uid"] = objUser.id;
                             Session["Acid"] = objUser.acid;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 736521f8d422f73f9913bb1a910408f79d162f2b
                             FormsAuthentication.SetAuthCookie("" + Request.Form["authkey"], false);
                             return RedirectToAction("Index", "Users");
                         }
