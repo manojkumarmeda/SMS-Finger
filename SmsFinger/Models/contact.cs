@@ -16,7 +16,7 @@ namespace SmsFinger.Models
     {
         public int contactid { get; set; }
         public string contactname { get; set; }
-        public byte[] mobileno { get; set; }
+        public string mobileno { get; set; }
         public Nullable<int> acid { get; set; }
         public Nullable<int> groupid { get; set; }
         public Nullable<System.DateTime> datecreated { get; set; }

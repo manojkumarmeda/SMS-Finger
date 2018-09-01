@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="smsfingerModelStoreContainer" CdmEntityContainer="smsfingerDB">
+    <EntitySetMapping Name="accouts">
+      <EntityTypeMapping TypeName="smsfingerModel.accout">
+        <MappingFragment StoreEntitySet="accouts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="acname" ColumnName="acname" />
+          <ScalarProperty Name="mpoc" ColumnName="mpoc" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="smsfingerModel.contact">
+        <MappingFragment StoreEntitySet="contacts">
+          <ScalarProperty Name="contactid" ColumnName="contactid" />
+          <ScalarProperty Name="contactname" ColumnName="contactname" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="acid" ColumnName="acid" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="groups">
+      <EntityTypeMapping TypeName="smsfingerModel.group">
+        <MappingFragment StoreEntitySet="groups">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="groupname" ColumnName="groupname" />
+          <ScalarProperty Name="acid" ColumnName="acid" />
+          <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="smsfingerModel.message">
+        <MappingFragment StoreEntitySet="message">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="creatorid" ColumnName="creatorid" />
+          <ScalarProperty Name="messagebody" ColumnName="messagebody" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="parentmessageid" ColumnName="parentmessageid" />
+          <ScalarProperty Name="expirydate" ColumnName="expirydate" />
+          <ScalarProperty Name="isreminder" ColumnName="isreminder" />
+          <ScalarProperty Name="nextreminddate" ColumnName="nextreminddate" />
+          <ScalarProperty Name="reminderfrequencyid" ColumnName="reminderfrequencyid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messagerecipients">
+      <EntityTypeMapping TypeName="smsfingerModel.messagerecipient">
+        <MappingFragment StoreEntitySet="messagerecipient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="recipientid" ColumnName="recipientid" />
+          <ScalarProperty Name="recipientgroupid" ColumnName="recipientgroupid" />
+          <ScalarProperty Name="messageid" ColumnName="messageid" />
+          <ScalarProperty Name="readstatus" ColumnName="readstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modules">
+      <EntityTypeMapping TypeName="smsfingerModel.module">
+        <MappingFragment StoreEntitySet="modules">
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="mname" ColumnName="mname" />
+          <ScalarProperty Name="mdesc" ColumnName="mdesc" />
+          <ScalarProperty Name="mcode" ColumnName="mcode" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reminderfrequencies">
+      <EntityTypeMapping TypeName="smsfingerModel.reminderfrequency">
+        <MappingFragment StoreEntitySet="reminderfrequency">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role_module_permisions">
+      <EntityTypeMapping TypeName="smsfingerModel.role_module_permisions">
+        <MappingFragment StoreEntitySet="role_module_permisions">
+          <ScalarProperty Name="urmpid" ColumnName="urmpid" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="mid" ColumnName="mid" />
+          <ScalarProperty Name="pc" ColumnName="pc" />
+          <ScalarProperty Name="pr" ColumnName="pr" />
+          <ScalarProperty Name="pu" ColumnName="pu" />
+          <ScalarProperty Name="pd" ColumnName="pd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sentmessages">
+      <EntityTypeMapping TypeName="smsfingerModel.sentmessage">
+        <MappingFragment StoreEntitySet="sentmessages">
+          <ScalarProperty Name="msgid" ColumnName="msgid" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="messagebody" ColumnName="messagebody" />
+          <ScalarProperty Name="msgtype" ColumnName="msgtype" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+          <ScalarProperty Name="acid" ColumnName="acid" />
+          <ScalarProperty Name="msgstatus" ColumnName="msgstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="smsfingerModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="acid" ColumnName="acid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+          <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userroles">
+      <EntityTypeMapping TypeName="smsfingerModel.userrole">
+        <MappingFragment StoreEntitySet="userrole">
+          <ScalarProperty Name="rid" ColumnName="rid" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

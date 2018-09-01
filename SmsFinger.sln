@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmsFinger", "SmsFinger\SmsFinger.csproj", "{79A5A436-2739-4440-BF71-D095DC4A396B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack.Utilities", "Stack.Utilities\Stack.Utilities.csproj", "{264AF290-8982-4B7E-BAD1-4CB61076B2EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{79A5A436-2739-4440-BF71-D095DC4A396B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A5A436-2739-4440-BF71-D095DC4A396B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A5A436-2739-4440-BF71-D095DC4A396B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264AF290-8982-4B7E-BAD1-4CB61076B2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264AF290-8982-4B7E-BAD1-4CB61076B2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264AF290-8982-4B7E-BAD1-4CB61076B2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264AF290-8982-4B7E-BAD1-4CB61076B2EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

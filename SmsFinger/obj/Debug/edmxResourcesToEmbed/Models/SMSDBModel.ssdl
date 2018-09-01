@@ -19,7 +19,7 @@
     </Key>
     <Property Name="contactid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="contactname" Type="varchar" MaxLength="100" />
-    <Property Name="mobileno" Type="varbinary" MaxLength="15" />
+    <Property Name="mobileno" Type="varchar" MaxLength="15" />
     <Property Name="acid" Type="int" />
     <Property Name="groupid" Type="int" />
     <Property Name="datecreated" Type="datetime" Precision="0" />

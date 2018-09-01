@@ -1,31 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="smsfingerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="accout">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="status" Type="Int32" />
-    <Property Name="datecreated" Type="DateTime" />
-    <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="contact">
-    <Key>
-      <PropertyRef Name="contactid" />
-    </Key>
-    <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="mobileno" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="acid" Type="Int32" />
-    <Property Name="groupid" Type="Int32" />
-    <Property Name="datecreated" Type="DateTime" />
-    <Property Name="usercreated" Type="Int32" />
-    <Property Name="status" Type="Int32" />
-  </EntityType>
   <EntityType Name="group">
     <Key>
       <PropertyRef Name="id" />
@@ -103,8 +77,6 @@
     <Property Name="rid" Type="Int32" />
   </EntityType>
   <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="accouts" EntityType="Self.accout" />
-    <EntitySet Name="contacts" EntityType="Self.contact" />
     <EntitySet Name="groups" EntityType="Self.group" />
     <EntitySet Name="messages" EntityType="Self.message" />
     <EntitySet Name="messagerecipients" EntityType="Self.messagerecipient" />
@@ -114,6 +86,8 @@
     <EntitySet Name="modules" EntityType="smsfingerModel.module" />
     <EntitySet Name="role_module_permisions" EntityType="smsfingerModel.role_module_permisions" />
     <EntitySet Name="userroles" EntityType="smsfingerModel.userrole" />
+    <EntitySet Name="accouts" EntityType="smsfingerModel.accout" />
+    <EntitySet Name="contacts" EntityType="smsfingerModel.contact" />
   </EntityContainer>
   <EntityType Name="module">
     <Key>
@@ -143,6 +117,32 @@
     </Key>
     <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="rolename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="accout">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="contactid" />
+    </Key>
+    <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="acid" Type="Int32" />
+    <Property Name="groupid" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="usercreated" Type="Int32" />
     <Property Name="status" Type="Int32" />
   </EntityType>
 </Schema>

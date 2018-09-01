@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "ErrorPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-wrapper">
+    <div class="title" data-content="500">
+        500
+    </div>
+
+    <div class="subtitle">
+        Oops..., the page you're looking for doesn't exist.
+    </div>
+
+    <div class="buttons">
+        @Html.ActionLink("Go to homepage", "Login", "Security",null, new { @class = "button" })
+    </div>
+</div>
+

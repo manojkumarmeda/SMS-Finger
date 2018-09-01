@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700" />
+    <style>
+        .buttons a.button {
+            font-weight: 700;
+            border: 2px solid #EE4B5E;
+            text-decoration: none;
+            padding: 15px;
+            text-transform: uppercase;
+            color: #090909;
+            border-radius: 26px;
+            transition: all 0.2s ease-in-out;
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            background-color: #009688;
+            font-family: 'Raleway', sans-serif;
+            height: 100%;
+            color: white;
+        }
+
+        .text-wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: 6em;
+            font-weight: 700;
+            color: #EE4B5E;
+        }
+
+        .subtitle {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1FA9D6;
+        }
+
+        .buttons {
+            margin: 30px;
+            a .button
+
+        {
+            font-weight: 700;
+            border: 2px solid #EE4B5E;
+            text-decoration: none;
+            padding: 15px;
+            text-transform: uppercase;
+            color: #EE4B5E;
+            border-radius: 26px;
+            transition: all 0.2s ease-in-out;
+            &:hover
+
+        {
+            background-color: #EE4B5E;
+            color: white;
+            transition: all 0.2s ease-in-out;
+        }
+
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr style="top: 416px;position: relative;" />
+        <footer style="position: relative;top: 407px;">
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -25,8 +25,6 @@ namespace SmsFinger.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<accout> accouts { get; set; }
-        public DbSet<contact> contacts { get; set; }
         public DbSet<group> groups { get; set; }
         public DbSet<message> messages { get; set; }
         public DbSet<messagerecipient> messagerecipients { get; set; }
@@ -36,5 +34,7 @@ namespace SmsFinger.Models
         public DbSet<module> modules { get; set; }
         public DbSet<role_module_permisions> role_module_permisions { get; set; }
         public DbSet<userrole> userroles { get; set; }
+        public DbSet<accout> accouts { get; set; }
+        public DbSet<contact> contacts { get; set; }
     }
 }

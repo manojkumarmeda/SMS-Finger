@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="smsfingerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="accout">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="contactid" />
+    </Key>
+    <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mobileno" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="acid" Type="Int32" />
+    <Property Name="groupid" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="usercreated" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="groupname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="acid" Type="Int32" />
+    <Property Name="usercreated" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="message">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="creatorid" Type="Int32" />
+    <Property Name="messagebody" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="parentmessageid" Type="Int32" />
+    <Property Name="expirydate" Type="DateTime" />
+    <Property Name="isreminder" Type="Int32" />
+    <Property Name="nextreminddate" Type="DateTime" />
+    <Property Name="reminderfrequencyid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="messagerecipient">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="recipientid" Type="Int32" />
+    <Property Name="recipientgroupid" Type="Int32" />
+    <Property Name="messageid" Type="Int32" />
+    <Property Name="readstatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="module">
+    <Key>
+      <PropertyRef Name="mid" />
+    </Key>
+    <Property Name="mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="mdesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="mcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="reminderfrequency">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="frequency" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="role_module_permisions">
+    <Key>
+      <PropertyRef Name="urmpid" />
+    </Key>
+    <Property Name="urmpid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="Int64" Nullable="false" />
+    <Property Name="mid" Type="Int32" Nullable="false" />
+    <Property Name="pc" Type="Boolean" />
+    <Property Name="pr" Type="Boolean" />
+    <Property Name="pu" Type="Boolean" />
+    <Property Name="pd" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sentmessage">
+    <Key>
+      <PropertyRef Name="msgid" />
+    </Key>
+    <Property Name="msgid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="messagebody" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="msgtype" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="usercreated" Type="Int32" />
+    <Property Name="acid" Type="Int32" />
+    <Property Name="msgstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rid" Type="Int32" />
+    <Property Name="acid" Type="Int32" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="datecreated" Type="DateTime" />
+    <Property Name="usercreated" Type="Int32" />
+    <Property Name="remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="userrole">
+    <Key>
+      <PropertyRef Name="rid" />
+    </Key>
+    <Property Name="rid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accouts" EntityType="Self.accout" />
+    <EntitySet Name="contacts" EntityType="Self.contact" />
+    <EntitySet Name="groups" EntityType="Self.group" />
+    <EntitySet Name="messages" EntityType="Self.message" />
+    <EntitySet Name="messagerecipients" EntityType="Self.messagerecipient" />
+    <EntitySet Name="modules" EntityType="Self.module" />
+    <EntitySet Name="reminderfrequencies" EntityType="Self.reminderfrequency" />
+    <EntitySet Name="role_module_permisions" EntityType="Self.role_module_permisions" />
+    <EntitySet Name="sentmessages" EntityType="Self.sentmessage" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="userroles" EntityType="Self.userrole" />
+  </EntityContainer>
+</Schema>

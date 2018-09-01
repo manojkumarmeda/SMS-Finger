@@ -1,0 +1,83 @@
+﻿@model SmsFinger.Models.smsfingerDB
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>
+            User Management
+        </h2>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>User Details</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>@Html.ActionLink("Users List", "Index")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form id="form_validation" method="POST" novalidate="novalidate">
+                        <div class="">
+                            @Html.LabelFor(model => model.acid) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.acid, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.firstname) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.lastname) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.gender) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.gender, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.email) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.rid) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.rid, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.datecreated) :
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DisplayFor(model => model.datecreated, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary waves-effect" })
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class = "btn btn-primary waves-effect" })
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

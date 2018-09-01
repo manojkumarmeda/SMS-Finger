@@ -1,0 +1,9 @@
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\bin\Debug\Stack.Utilities.dll.config
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\bin\Debug\Stack.Utilities.dll
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\bin\Debug\Stack.Utilities.pdb
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\bin\Debug\ActiveUp.Net.Common.dll
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\bin\Debug\ActiveUp.Net.Smtp.dll
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\obj\Debug\Stack.Utilities.csproj.CoreCompileInputs.cache
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\obj\Debug\Stack.Utilities.csproj.CopyComplete
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\obj\Debug\Stack.Utilities.dll
+F:\Room\SmsFinger\SMS-Finger\Stack.Utilities\obj\Debug\Stack.Utilities.pdb

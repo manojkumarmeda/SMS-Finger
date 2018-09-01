@@ -34,8 +34,10 @@ namespace SmsFinger.Controllers
                     {
                         if (objUser.status == 1)
                         {
-                            Session["UserName"] = objUser.firstname+" "+objUser.lastname;
+                            Session["UserName"] = objUser.firstname + " " + objUser.lastname;
                             Session["UserEmail"] = objUser.email;
+                            Session["Uid"] = objUser.id;
+                            Session["Acid"] = objUser.acid;
 
                             FormsAuthentication.SetAuthCookie("" + Request.Form["authkey"], false);
                             return RedirectToAction("Index", "Users");

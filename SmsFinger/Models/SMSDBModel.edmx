@@ -24,7 +24,7 @@
           </Key>
           <Property Name="contactid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="contactname" Type="varchar" MaxLength="100" />
-          <Property Name="mobileno" Type="varbinary" MaxLength="15" />
+          <Property Name="mobileno" Type="varchar" MaxLength="15" />
           <Property Name="acid" Type="int" />
           <Property Name="groupid" Type="int" />
           <Property Name="datecreated" Type="datetime" Precision="0" />
@@ -154,32 +154,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="smsfingerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="accout">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="datecreated" Type="DateTime" />
-          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="contact">
-          <Key>
-            <PropertyRef Name="contactid" />
-          </Key>
-          <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="mobileno" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="acid" Type="Int32" />
-          <Property Name="groupid" Type="Int32" />
-          <Property Name="datecreated" Type="DateTime" />
-          <Property Name="usercreated" Type="Int32" />
-          <Property Name="status" Type="Int32" />
-        </EntityType>
         <EntityType Name="group">
           <Key>
             <PropertyRef Name="id" />
@@ -257,8 +231,6 @@
           <Property Name="rid" Type="Int32" />
         </EntityType>
         <EntityContainer Name="smsfingerDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="accouts" EntityType="Self.accout" />
-          <EntitySet Name="contacts" EntityType="Self.contact" />
           <EntitySet Name="groups" EntityType="Self.group" />
           <EntitySet Name="messages" EntityType="Self.message" />
           <EntitySet Name="messagerecipients" EntityType="Self.messagerecipient" />
@@ -268,6 +240,8 @@
           <EntitySet Name="modules" EntityType="smsfingerModel.module" />
           <EntitySet Name="role_module_permisions" EntityType="smsfingerModel.role_module_permisions" />
           <EntitySet Name="userroles" EntityType="smsfingerModel.userrole" />
+          <EntitySet Name="accouts" EntityType="smsfingerModel.accout" />
+          <EntitySet Name="contacts" EntityType="smsfingerModel.contact" />
         </EntityContainer>
         <EntityType Name="module">
           <Key>
@@ -299,40 +273,38 @@
           <Property Name="rolename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="status" Type="Int32" />
         </EntityType>
+        <EntityType Name="accout">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mpoc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="contact">
+          <Key>
+            <PropertyRef Name="contactid" />
+          </Key>
+          <Property Name="contactid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contactname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="acid" Type="Int32" />
+          <Property Name="groupid" Type="Int32" />
+          <Property Name="datecreated" Type="DateTime" />
+          <Property Name="usercreated" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="smsfingerModelStoreContainer" CdmEntityContainer="smsfingerDB">
-          <EntitySetMapping Name="accouts">
-            <EntityTypeMapping TypeName="smsfingerModel.accout">
-              <MappingFragment StoreEntitySet="accouts">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="acname" ColumnName="acname" />
-                <ScalarProperty Name="mpoc" ColumnName="mpoc" />
-                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
-                <ScalarProperty Name="remarks" ColumnName="remarks" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="contacts">
-            <EntityTypeMapping TypeName="smsfingerModel.contact">
-              <MappingFragment StoreEntitySet="contacts">
-                <ScalarProperty Name="contactid" ColumnName="contactid" />
-                <ScalarProperty Name="contactname" ColumnName="contactname" />
-                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
-                <ScalarProperty Name="acid" ColumnName="acid" />
-                <ScalarProperty Name="groupid" ColumnName="groupid" />
-                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
-                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="groups">
             <EntityTypeMapping TypeName="smsfingerModel.group">
               <MappingFragment StoreEntitySet="groups">
@@ -445,6 +417,34 @@
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="rolename" ColumnName="rolename" />
                 <ScalarProperty Name="rid" ColumnName="rid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accouts">
+            <EntityTypeMapping TypeName="smsfingerModel.accout">
+              <MappingFragment StoreEntitySet="accouts">
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="mpoc" ColumnName="mpoc" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="smsfingerModel.contact">
+              <MappingFragment StoreEntitySet="contacts">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="usercreated" ColumnName="usercreated" />
+                <ScalarProperty Name="datecreated" ColumnName="datecreated" />
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="contactname" ColumnName="contactname" />
+                <ScalarProperty Name="contactid" ColumnName="contactid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

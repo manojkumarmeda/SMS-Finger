@@ -1,0 +1,87 @@
+﻿@model SmsFinger.Models.user
+
+@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="block-header">
+        <h2>
+            User Management
+        </h2>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>User Creation</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>@Html.ActionLink("Users List", "Index")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form id="form_validation" method="POST" novalidate="novalidate">
+                        <div class="">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.acid, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.acid, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "form-label" })
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.DropDownList("SelectedItem", (IEnumerable<SelectListItem>)ViewData["ListItems"], new { @class = "form-control show-tick" })
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    @Html.EditorFor(model => model.remarks, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                    @Html.LabelFor(model => model.remarks, htmlAttributes: new { @class = "form-label" })
+                                </div>
+                            </div>
+                            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary waves-effect" })
+                            <input type="submit" value="Save" class="btn btn-primary waves-effect" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
